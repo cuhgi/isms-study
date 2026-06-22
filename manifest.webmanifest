@@ -1,0 +1,16 @@
+{
+  "name": "ISMS-P 인증심사원 학습",
+  "short_name": "ISMS-P 학습",
+  "description": "ISMS-P 인증심사원 시험 학습노트·암기카드·모의고사 (오프라인)",
+  "lang": "ko",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f4c91",
+  "theme_color": "#0f4c91",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

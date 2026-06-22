@@ -1,0 +1,115 @@
+:root{
+  --bg:#ffffff; --fg:#1a1a1a; --muted:#6b7280; --line:#e5e7eb;
+  --card:#f7f8fa; --accent:#0f4c91; --accent-fg:#fff;
+  --code:#eef2f7; --quote:#f0f4f9; --mark:#fde68a; --bm:#f59e0b;
+}
+[data-theme="dark"]{
+  --bg:#0e1116; --fg:#e6edf3; --muted:#9aa4b2; --line:#222a35;
+  --card:#161b22; --accent:#2f6fed; --accent-fg:#fff;
+  --code:#161b22; --quote:#10161f; --mark:#5b4a16; --bm:#f0b429;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--fg);
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",Roboto,sans-serif;
+  font-size:16px; line-height:1.7; -webkit-text-size-adjust:100%;
+  padding-bottom:120px;
+}
+#appbar{
+  position:sticky; top:0; z-index:30; background:var(--accent); color:var(--accent-fg);
+  padding:calc(env(safe-area-inset-top) + 6px) 8px 6px; box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+.bar-row{display:flex; align-items:center; gap:8px; margin-bottom:6px}
+#title{flex:1; text-align:center; font-size:16px}
+.icon-btn{
+  background:rgba(255,255,255,.15); color:#fff; border:0; border-radius:8px;
+  width:38px; height:38px; font-size:18px; flex:0 0 auto;
+}
+#search{
+  width:100%; border:0; border-radius:10px; padding:10px 12px; font-size:15px;
+  background:rgba(255,255,255,.95); color:#111;
+}
+#tabs{display:flex; gap:6px; overflow-x:auto; padding:2px 0; -webkit-overflow-scrolling:touch}
+.tab{
+  flex:0 0 auto; background:rgba(255,255,255,.15); color:#fff; border:0;
+  padding:7px 12px; border-radius:999px; font-size:13px; white-space:nowrap;
+}
+.tab.active{background:#fff; color:var(--accent); font-weight:700}
+
+#view{padding:14px 14px 0}
+.markdown{max-width:760px; margin:0 auto}
+
+/* drawer / TOC */
+.drawer{position:fixed; inset:0; z-index:40}
+.drawer-inner{
+  position:absolute; left:0; top:0; bottom:0; width:80%; max-width:320px; background:var(--bg);
+  overflow:auto; padding:12px; box-shadow:2px 0 16px rgba(0,0,0,.3);
+}
+.backdrop{position:absolute; inset:0; background:rgba(0,0,0,.45)}
+.drawer-head{display:flex; justify-content:space-between; align-items:center; font-weight:700; margin-bottom:8px}
+.drawer-head .icon-btn{background:var(--card); color:var(--fg)}
+#toc a{display:block; padding:7px 6px; color:var(--fg); text-decoration:none; border-bottom:1px solid var(--line); font-size:14px}
+#toc a.lv3{padding-left:20px; color:var(--muted); font-size:13px}
+
+/* markdown elements */
+.markdown h1{font-size:22px; margin:18px 0 10px; padding-bottom:6px; border-bottom:2px solid var(--accent)}
+.markdown h2{font-size:19px; margin:22px 0 8px; color:var(--accent)}
+.markdown h3{font-size:16px; margin:16px 0 6px}
+.markdown p{margin:8px 0}
+.markdown ul,.markdown ol{margin:6px 0; padding-left:22px}
+.markdown li{margin:3px 0}
+.markdown a{color:var(--accent); word-break:break-all}
+.markdown code{background:var(--code); padding:1px 5px; border-radius:5px; font-size:.92em}
+.markdown pre{background:var(--code); padding:12px; border-radius:10px; overflow:auto; font-size:13px}
+.markdown pre code{background:none; padding:0}
+.markdown blockquote{
+  margin:10px 0; padding:8px 12px; background:var(--quote);
+  border-left:4px solid var(--accent); border-radius:0 8px 8px 0; color:var(--fg)
+}
+.markdown hr{border:0; border-top:1px dashed var(--line); margin:18px 0}
+.markdown table{border-collapse:collapse; width:100%; margin:10px 0; font-size:13.5px; display:block; overflow-x:auto}
+.markdown th,.markdown td{border:1px solid var(--line); padding:7px 9px; text-align:left; vertical-align:top}
+.markdown th{background:var(--card)}
+.markdown strong{font-weight:700}
+mark{background:var(--mark); color:inherit; padding:0 2px; border-radius:3px}
+
+/* quiz: details */
+.markdown details{
+  background:var(--card); border:1px solid var(--line); border-radius:10px;
+  padding:8px 12px; margin:8px 0; position:relative
+}
+.markdown details summary{
+  cursor:pointer; font-weight:700; color:var(--accent); list-style:none; padding-right:34px
+}
+.markdown details summary::-webkit-details-marker{display:none}
+.markdown details summary::after{content:"  ▼ 탭하여 정답"; font-weight:400; font-size:12px; color:var(--muted)}
+.markdown details[open] summary::after{content:"  ▲ 접기"}
+.markdown details[open]{border-color:var(--accent)}
+
+/* bookmark star injected on question paragraphs */
+.bm{
+  position:absolute; right:6px; top:6px; background:none; border:0; font-size:20px;
+  color:var(--muted); line-height:1; padding:4px
+}
+.bm.on{color:var(--bm)}
+.q-wrap{position:relative}
+
+.quizbar{
+  position:fixed; left:0; right:0; bottom:0; z-index:25; display:flex; gap:6px;
+  padding:8px 10px calc(env(safe-area-inset-bottom) + 8px); background:var(--card);
+  border-top:1px solid var(--line)
+}
+.qbtn{flex:1; border:1px solid var(--line); background:var(--bg); color:var(--fg); border-radius:10px; padding:11px 6px; font-size:13px}
+.qbtn.active{background:var(--accent); color:#fff; border-color:var(--accent)}
+
+.totop{
+  position:fixed; right:14px; bottom:70px; z-index:24; width:46px; height:46px; border-radius:50%;
+  border:0; background:var(--accent); color:#fff; font-size:20px; box-shadow:0 3px 10px rgba(0,0,0,.3)
+}
+
+#searchResults{max-width:760px; margin:0 auto}
+.sr-item{display:block; padding:11px 10px; border-bottom:1px solid var(--line); color:var(--fg); text-decoration:none}
+.sr-item .sr-tab{font-size:11px; color:var(--accent); display:block}
+.sr-empty{color:var(--muted); padding:20px; text-align:center}
+.hidden-q{display:none !important}

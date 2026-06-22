@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f4c91">
+<title>ISMS-P 학습</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="appbar">
+  <div class="bar-row">
+    <button id="menuBtn" class="icon-btn" aria-label="목차">☰</button>
+    <strong id="title">ISMS-P 학습</strong>
+    <button id="themeBtn" class="icon-btn" aria-label="테마">🌙</button>
+  </div>
+  <div class="bar-row">
+    <input id="search" type="search" placeholder="🔍 검색 (예: 위탁, 72시간, 2.6.4)" autocomplete="off">
+  </div>
+  <nav id="tabs"></nav>
+</header>
+
+<div id="drawer" class="drawer" hidden>
+  <div class="drawer-inner">
+    <div class="drawer-head">목차<button id="drawerClose" class="icon-btn">✕</button></div>
+    <div id="toc"></div>
+  </div>
+  <div id="drawerBackdrop" class="backdrop"></div>
+</div>
+
+<main id="view">
+  <div id="searchResults" hidden></div>
+  <div id="content" class="markdown"></div>
+</main>
+
+<div id="quizbar" class="quizbar" hidden>
+  <button id="collapseAll" class="qbtn">정답 모두 접기</button>
+  <button id="expandAll" class="qbtn">모두 펼치기</button>
+  <button id="bmFilter" class="qbtn">★ 북마크만</button>
+</div>
+
+<button id="toTop" class="totop" aria-label="맨 위로" hidden>↑</button>
+
+<script src="app.js"></script>
+</body>
+</html>
