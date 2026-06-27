@@ -1,5 +1,5 @@
 /* ISMS-P 학습앱 서비스워커 — 오프라인 캐시 (cache-first) */
-const CACHE = 'ismsp-v2';
+const CACHE = 'ismsp-v3';
 const ASSETS = [
   './', './index.html', './style.css', './app.js',
   './manifest.webmanifest', './icon-192.png', './icon-512.png',
@@ -9,6 +9,9 @@ const ASSETS = [
   './content/04-영역별심화.md',
   './content/05-정식모의고사50.md',
   './content/06-공식인증기준101.md',
+  './content/07-10일체크리스트.md',
+  './content/08-최종암기시트.md',
+  './content/09-결함모의고사.md',
 ];
 
 self.addEventListener('install', e=>{
